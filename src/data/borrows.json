@@ -1,0 +1,58 @@
+[
+  {
+    "id": "d4e5f6a7-b8c9-0123-def0-234567890123",
+    "bookId": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+    "borrowerName": "Rahul Sharma",
+    "borrowDate": "2026-08-01",
+    "dueDate": "2026-08-15",
+    "returnDate": "2026-08-18"
+  },
+  {
+    "id": "e5f6a7b8-c9d0-1234-ef01-345678901234",
+    "bookId": "b2c3d4e5-f6a7-8901-bcde-f12345678901",
+    "borrowerName": "Priya Patel",
+    "borrowDate": "2026-08-05",
+    "dueDate": "2026-08-20",
+    "returnDate": null
+  },
+  {
+    "id": "0e09b379-793c-42d7-888a-f6e14aacb326",
+    "bookId": "c3d4e5f6-a7b8-9012-cdef-123456789012",
+    "borrowerName": "ABCD",
+    "borrowDate": "2026-08-18",
+    "dueDate": "2026-08-18",
+    "returnDate": "2026-08-19"
+  },
+  {
+    "id": "0130e005-5a6a-4731-9123-c01bf0ff063f",
+    "bookId": "b2c3d4e5-f6a7-8901-bcde-f12345678901",
+    "borrowerName": "Zeus",
+    "borrowDate": "2026-08-19",
+    "dueDate": "2026-08-20",
+    "returnDate": null
+  },
+  {
+    "id": "bb02a48e-eb11-4a45-bca3-33c77d8548bd",
+    "bookId": "9f46681e-9dd2-4413-8ece-1bc047eed930",
+    "borrowerName": "Poseidon ",
+    "borrowDate": "2026-08-19",
+    "dueDate": "2026-08-22",
+    "returnDate": null
+  },
+  {
+    "id": "04a50f2a-46b7-4b99-8fd5-f2896d56954f",
+    "bookId": "c3d4e5f6-a7b8-9012-cdef-123456789012",
+    "borrowerName": "Kratos",
+    "borrowDate": "2026-08-19",
+    "dueDate": "2026-08-21",
+    "returnDate": null
+  },
+  {
+    "id": "0a20ce64-3f77-4e67-9f90-1e19f49b08ce",
+    "bookId": "f2628439-7675-4659-8daf-1e86d4a8bcf9",
+    "borrowerName": "Alexander",
+    "borrowDate": "2026-08-19",
+    "dueDate": "2026-08-21",
+    "returnDate": null
+  }
+]
