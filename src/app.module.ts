@@ -7,6 +7,3 @@ import { BorrowsModule } from './borrows/borrows.module';
 })
 export class AppModule {}
 
-function Module(arg0: { imports: (typeof BooksModule)[]; }): (target: typeof AppModule, context: ClassDecoratorContext<typeof AppModule>) => void | typeof AppModule {
-  throw new Error('Function not implemented.');
-}
