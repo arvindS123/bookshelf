@@ -6,4 +6,3 @@ import { BorrowsModule } from './borrows/borrows.module';
   imports: [BooksModule, BorrowsModule],
 })
 export class AppModule {}
-
