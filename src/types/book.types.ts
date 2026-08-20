@@ -5,6 +5,7 @@ export interface Book {
   isbn: string;
   genre: string;
   totalCopies: number;
+  coverUrl?: string;          
 }
 
 export interface CreateBookDto {

@@ -10,7 +10,6 @@ import CreateBookPage from './pages/CreateBookPage';
 import EditBookPage from './pages/EditBookPage';
 import BorrowsPage from './pages/BorrowsPage';
 import CreateBorrowPage from './pages/CreateBorrowPage';
-
 import './index.css';
 
 function App() {
@@ -18,7 +17,8 @@ function App() {
     <AuthProvider>
       <BrowserRouter>
         <Navbar />
-        <main className="container">
+        {/* Remove the old "container" class */}
+        <main className="min-h-screen">
           <Routes>
             {/* Public route */}
             <Route path="/login" element={<LoginPage />} />
@@ -85,6 +85,20 @@ function App() {
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </main>
+
+        {/* Footer */}
+        <footer className="fixed bottom-0 left-0 right-0 bg-gray-900 text-gray-300 py-6 border-t border-gray-800 z-40">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center">
+              <p className="text-sm text-gray-400">
+                &copy; {new Date().getFullYear()} Book Library. All rights reserved.
+              </p>
+            </div>
+          </div>
+        </footer>
+
+        {/* Padding at bottom to prevent content from being hidden under fixed footer */}
+        <div className="h-20" />
       </BrowserRouter>
     </AuthProvider>
   );
