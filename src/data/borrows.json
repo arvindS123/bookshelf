@@ -16,17 +16,9 @@
     "returnDate": null
   },
   {
-    "id": "0e09b379-793c-42d7-888a-f6e14aacb326",
-    "bookId": "c3d4e5f6-a7b8-9012-cdef-123456789012",
-    "borrowerName": "ABCD",
-    "borrowDate": "2026-08-18",
-    "dueDate": "2026-08-18",
-    "returnDate": "2026-08-19"
-  },
-  {
     "id": "0130e005-5a6a-4731-9123-c01bf0ff063f",
     "bookId": "b2c3d4e5-f6a7-8901-bcde-f12345678901",
-    "borrowerName": "Zeus",
+    "borrowerName": "Hades",
     "borrowDate": "2026-08-19",
     "dueDate": "2026-08-20",
     "returnDate": null
@@ -43,8 +35,8 @@
     "id": "04a50f2a-46b7-4b99-8fd5-f2896d56954f",
     "bookId": "c3d4e5f6-a7b8-9012-cdef-123456789012",
     "borrowerName": "Kratos",
-    "borrowDate": "2026-08-19",
-    "dueDate": "2026-08-21",
+    "borrowDate": "2026-08-14",
+    "dueDate": "2026-08-18",
     "returnDate": null
   },
   {
@@ -52,6 +44,30 @@
     "bookId": "f2628439-7675-4659-8daf-1e86d4a8bcf9",
     "borrowerName": "Alexander",
     "borrowDate": "2026-08-19",
+    "dueDate": "2026-08-21",
+    "returnDate": null
+  },
+  {
+    "id": "d9c1415d-b142-4b28-a032-82d3c13267d9",
+    "bookId": "f2628439-7675-4659-8daf-1e86d4a8bcf9",
+    "borrowerName": "Alice Johnson",
+    "borrowDate": "2026-08-20",
+    "dueDate": "2026-08-30",
+    "returnDate": null
+  },
+  {
+    "id": "26d9254c-fea1-499b-837a-9bc99162f2dd",
+    "bookId": "f2628439-7675-4659-8daf-1e86d4a8bcf9",
+    "borrowerName": "Achillis",
+    "borrowDate": "2026-08-20",
+    "dueDate": "2026-08-25",
+    "returnDate": "2026-08-20"
+  },
+  {
+    "id": "3a315a59-0166-4f0d-a779-5b643d682059",
+    "bookId": "b2c3d4e5-f6a7-8901-bcde-f12345678901",
+    "borrowerName": "Zeus",
+    "borrowDate": "2026-08-20",
     "dueDate": "2026-08-21",
     "returnDate": null
   }

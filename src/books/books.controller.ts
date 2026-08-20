@@ -1,4 +1,22 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete, Query, ParseIntPipe, DefaultValuePipe, UseGuards } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Patch,
+  Param,
+  Delete,
+  Query,
+  ParseIntPipe,
+  DefaultValuePipe,
+  UseGuards,
+  UseInterceptors,
+  UploadedFile,
+} from '@nestjs/common';
+import { FileInterceptor } from '@nestjs/platform-express';
+import { diskStorage } from 'multer';
+import { extname } from 'path';
+import { v4 as uuidv4 } from 'uuid';
 import { JwtAuthGuard } from '../auth/jwt-auth.guard';
 import { BooksService } from './books.service';
 import { CreateBookDto } from './dto/create-book.dto';
@@ -14,8 +32,30 @@ export class BooksController {
   ) {}
 
   @Post()
-  create(@Body() dto: CreateBookDto) {
-    return this.booksService.create(dto);
+  @UseInterceptors(
+    FileInterceptor('cover', {
+      storage: diskStorage({
+        destination: './uploads/covers',
+        filename: (req, file, cb) => {
+          const uniqueName = `${uuidv4()}${extname(file.originalname)}`;
+          cb(null, uniqueName);
+        },
+      }),
+      fileFilter: (req, file, cb) => {
+        if (!file.mimetype.match(/\/(jpg|jpeg|png|webp)$/)) {
+          return cb(new Error('Only image files (jpg, jpeg, png, webp) are allowed!'), false);
+        }
+        cb(null, true);
+      },
+      limits: { fileSize: 5 * 1024 * 1024 }, // 5 MB
+    }),
+  )
+  create(
+    @Body() dto: CreateBookDto,
+    @UploadedFile() file?: Express.Multer.File,
+  ) {
+    const coverUrl = file ? `/uploads/covers/${file.filename}` : undefined;
+    return this.booksService.create(dto, coverUrl);
   }
 
   @Get()
@@ -34,15 +74,37 @@ export class BooksController {
     return this.booksService.findOne(id);
   }
 
-  // Required parent → children endpoint
   @Get(':id/borrows')
   findBorrows(@Param('id') id: string) {
     return this.borrowsService.findByBookId(id);
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() dto: UpdateBookDto) {
-    return this.booksService.update(id, dto);
+  @UseInterceptors(
+    FileInterceptor('cover', {
+      storage: diskStorage({
+        destination: './uploads/covers',
+        filename: (req, file, cb) => {
+          const uniqueName = `${uuidv4()}${extname(file.originalname)}`;
+          cb(null, uniqueName);
+        },
+      }),
+      fileFilter: (req, file, cb) => {
+        if (!file.mimetype.match(/\/(jpg|jpeg|png|webp)$/)) {
+          return cb(new Error('Only image files (jpg, jpeg, png, webp) are allowed!'), false);
+        }
+        cb(null, true);
+      },
+      limits: { fileSize: 5 * 1024 * 1024 },
+    }),
+  )
+  update(
+    @Param('id') id: string,
+    @Body() dto: UpdateBookDto,
+    @UploadedFile() file?: Express.Multer.File,
+  ) {
+    const coverUrl = file ? `/uploads/covers/${file.filename}` : undefined;
+    return this.booksService.update(id, dto, coverUrl);
   }
 
   @Delete(':id')

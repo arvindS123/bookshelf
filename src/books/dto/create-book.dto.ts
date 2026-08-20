@@ -1,4 +1,14 @@
-import { IsString, IsNotEmpty, IsInt, Min, Matches, MaxLength } from 'class-validator';
+import {
+  IsString,
+  IsNotEmpty,
+  IsInt,
+  Min,
+  Matches,
+  MaxLength,
+  IsOptional,
+  IsNumberString,
+} from 'class-validator';
+import { Type } from 'class-transformer';
 
 export class CreateBookDto {
   @IsString()
@@ -23,7 +33,11 @@ export class CreateBookDto {
   @MaxLength(50)
   genre!: string;
 
+  @Type(() => Number)
   @IsInt()
   @Min(1)
   totalCopies!: number;
+
+  @IsOptional()
+  cover?: any; // Handled by FileInterceptor
 }

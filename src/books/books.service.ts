@@ -70,24 +70,38 @@ export class BooksService {
     return book;
   }
 
-  create(dto: CreateBookDto): Book {
+  create(dto: CreateBookDto, coverUrl?: string): Book {
     const books = this.readBooks();
+
     if (books.some((b) => b.isbn === dto.isbn)) {
       throw new BadRequestException('A book with this ISBN already exists');
     }
 
-    const newBook: Book = { id: uuidv4(), ...dto };
+    const newBook: Book = {
+      id: uuidv4(),
+      ...dto,
+      coverUrl, // will be undefined if no image was uploaded
+    };
+
     books.push(newBook);
     this.writeBooks(books);
     return newBook;
   }
 
-  update(id: string, dto: UpdateBookDto): Book {
+  update(id: string, dto: UpdateBookDto, coverUrl?: string): Book {
     const books = this.readBooks();
     const index = books.findIndex((b) => b.id === id);
-    if (index === -1) throw new NotFoundException(`Book with ID ${id} not found`);
 
-    books[index] = { ...books[index], ...dto };
+    if (index === -1) {
+      throw new NotFoundException(`Book with ID ${id} not found`);
+    }
+
+    books[index] = {
+      ...books[index],
+      ...dto,
+      ...(coverUrl && { coverUrl }), // only overwrite if a new image was uploaded
+    };
+
     this.writeBooks(books);
     return books[index];
   }
@@ -95,7 +109,11 @@ export class BooksService {
   remove(id: string): void {
     const books = this.readBooks();
     const index = books.findIndex((b) => b.id === id);
-    if (index === -1) throw new NotFoundException(`Book with ID ${id} not found`);
+
+    if (index === -1) {
+      throw new NotFoundException(`Book with ID ${id} not found`);
+    }
+
     books.splice(index, 1);
     this.writeBooks(books);
   }

@@ -1,4 +1,5 @@
 import { IsString, IsOptional, IsInt, Min, Matches, MaxLength } from 'class-validator';
+import { Type } from 'class-transformer';
 
 export class UpdateBookDto {
   @IsOptional()
@@ -24,7 +25,11 @@ export class UpdateBookDto {
   genre?: string;
 
   @IsOptional()
+  @Type(() => Number)
   @IsInt()
   @Min(1)
   totalCopies?: number;
+
+  @IsOptional()
+  cover?: any; // Handled by FileInterceptor
 }

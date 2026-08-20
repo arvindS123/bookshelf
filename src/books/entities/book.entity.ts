@@ -1,3 +1,4 @@
+
 export class Book {
   id!: string;
   title!: string;
@@ -5,4 +6,5 @@ export class Book {
   isbn!: string;
   genre!: string;
   totalCopies!: number;
+  coverUrl?: string;          
 }
