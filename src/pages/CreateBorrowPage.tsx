@@ -1,6 +1,7 @@
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { borrowService } from '../services/borrowService';
-
+import BorrowForm from '../components/borrows/BorrowForm';
+import type { CreateBorrowDto } from '../types/borrow.types';
 
 export default function CreateBorrowPage() {
   const navigate = useNavigate();

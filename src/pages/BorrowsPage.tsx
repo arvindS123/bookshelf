@@ -1,6 +1,13 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-
+import { borrowService } from '../services/borrowService';
+import { bookService } from '../services/bookService';
+import type { BorrowRecord } from '../types/borrow.types';
+import type { Book } from '../types/book.types';
+import BorrowCard from '../components/borrows/BorrowCard';
+import Pagination from '../components/common/Pagination';
+import Loading from '../components/common/Loading';
+import ErrorMessage from '../components/common/ErrorMessage';
 
 export default function BorrowsPage() {
   const [records, setRecords] = useState<BorrowRecord[]>([]);

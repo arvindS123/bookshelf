@@ -1,6 +1,12 @@
 import { useEffect, useState } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
-
+import { bookService } from '../services/bookService';
+import { borrowService } from '../services/borrowService';
+import type { Book } from '../types/book.types';
+import type { BorrowRecord } from '../types/borrow.types';
+import BorrowCard from '../components/borrows/BorrowCard';
+import Loading from '../components/common/Loading';
+import ErrorMessage from '../components/common/ErrorMessage';
 
 export default function BookDetailsPage() {
   const { id } = useParams<{ id: string }>();
