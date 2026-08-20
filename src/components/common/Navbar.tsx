@@ -30,11 +30,11 @@ export default function Navbar() {
             <span className="hidden sm:inline">Book Library</span>
           </Link>
 
-          {/* Navigation Links */}
-          <div className="hidden md:flex items-center gap-1">
+          {/* Navigation Links - Increased text size to text-base */}
+          <div className="hidden md:flex items-center gap-1.5">
             <Link
               to="/"
-              className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
+              className={`px-4 py-2 rounded-lg text-base font-medium transition-colors ${
                 location.pathname === '/'
                   ? 'bg-violet-50 text-violet-700'
                   : 'text-gray-600 hover:text-violet-700 hover:bg-violet-50/50'
@@ -44,7 +44,7 @@ export default function Navbar() {
             </Link>
             <Link
               to="/books"
-              className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
+              className={`px-4 py-2 rounded-lg text-base font-medium transition-colors ${
                 isActive('/books')
                   ? 'bg-violet-50 text-violet-700'
                   : 'text-gray-600 hover:text-violet-700 hover:bg-violet-50/50'
@@ -54,7 +54,7 @@ export default function Navbar() {
             </Link>
             <Link
               to="/borrows"
-              className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
+              className={`px-4 py-2 rounded-lg text-base font-medium transition-colors ${
                 isActive('/borrows')
                   ? 'bg-violet-50 text-violet-700'
                   : 'text-gray-600 hover:text-violet-700 hover:bg-violet-50/50'
@@ -66,9 +66,9 @@ export default function Navbar() {
 
           {/* User + Logout */}
           <div className="flex items-center gap-3">
-            <div className="hidden sm:flex items-center gap-2 text-sm text-gray-600">
+            <div className="hidden sm:flex items-center gap-2 text-base text-gray-600">
               <div className="w-8 h-8 rounded-full bg-violet-100 flex items-center justify-center">
-                <span className="text-sm font-semibold text-violet-700">
+                <span className="text-base font-semibold text-violet-700">
                   {user?.username?.charAt(0).toUpperCase() || 'U'}
                 </span>
               </div>
@@ -77,7 +77,7 @@ export default function Navbar() {
 
             <button
               onClick={handleLogout}
-              className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-sm font-medium text-gray-600 hover:text-red-600 hover:bg-red-50 border border-gray-200 hover:border-red-200 transition-colors"
+              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg text-base font-medium text-gray-600 hover:text-red-600 hover:bg-red-50 border border-gray-200 hover:border-red-200 transition-colors"
             >
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path
@@ -92,11 +92,11 @@ export default function Navbar() {
           </div>
         </div>
 
-        {/* Mobile Navigation */}
+        {/* Mobile Navigation - Increased text size */}
         <div className="md:hidden flex gap-1 pb-3 overflow-x-auto">
           <Link
             to="/"
-            className={`px-3 py-1.5 rounded-lg text-sm font-medium whitespace-nowrap transition-colors ${
+            className={`px-3 py-1.5 rounded-lg text-base font-medium whitespace-nowrap transition-colors ${
               location.pathname === '/'
                 ? 'bg-violet-50 text-violet-700'
                 : 'text-gray-600 hover:bg-gray-50'
@@ -106,7 +106,7 @@ export default function Navbar() {
           </Link>
           <Link
             to="/books"
-            className={`px-3 py-1.5 rounded-lg text-sm font-medium whitespace-nowrap transition-colors ${
+            className={`px-3 py-1.5 rounded-lg text-base font-medium whitespace-nowrap transition-colors ${
               isActive('/books')
                 ? 'bg-violet-50 text-violet-700'
                 : 'text-gray-600 hover:bg-gray-50'
@@ -116,7 +116,7 @@ export default function Navbar() {
           </Link>
           <Link
             to="/borrows"
-            className={`px-3 py-1.5 rounded-lg text-sm font-medium whitespace-nowrap transition-colors ${
+            className={`px-3 py-1.5 rounded-lg text-base font-medium whitespace-nowrap transition-colors ${
               isActive('/borrows')
                 ? 'bg-violet-50 text-violet-700'
                 : 'text-gray-600 hover:bg-gray-50'

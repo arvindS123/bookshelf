@@ -88,7 +88,7 @@ function App() {
 
         {/* Footer */}
         <footer className="fixed bottom-0 left-0 right-0 bg-gray-900 text-gray-300 py-6 border-t border-gray-800 z-40">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className=" mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center">
               <p className="text-sm text-gray-400">
                 &copy; {new Date().getFullYear()} Book Library. All rights reserved.
