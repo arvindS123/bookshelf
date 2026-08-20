@@ -1,4 +1,4 @@
-
+import type { BorrowRecord } from '../../types/borrow.types';
 
 interface Props {
   record: BorrowRecord;
@@ -8,7 +8,12 @@ interface Props {
 }
 
 export default function BorrowCard({ record, bookTitle, onReturn, onDelete }: Props) {
- 
+  const statusClass =
+    record.status === 'Overdue'
+      ? 'badge-danger'
+      : record.status === 'Returned'
+        ? 'badge-success'
+        : 'badge-info';
 
   return (
     <div className="card">

@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import type { Book } from '../../types/book.types';
 
 interface Props {
   book: Book;

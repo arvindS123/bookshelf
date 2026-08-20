@@ -1,5 +1,7 @@
 import { useState, useEffect, type FormEvent } from 'react';
-
+import { bookService } from '../../services/bookService';
+import type { Book } from '../../types/book.types';
+import type { CreateBorrowDto } from '../../types/borrow.types';
 
 interface Props {
   preselectedBookId?: string;
@@ -7,7 +9,12 @@ interface Props {
 }
 
 export default function BorrowForm({ preselectedBookId, onSubmit }: Props) {
- 
+  const [books, setBooks] = useState<Book[]>([]);
+  const [form, setForm] = useState<CreateBorrowDto>({
+    bookId: preselectedBookId || '',
+    borrowerName: '',
+    dueDate: '',
+  });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
 
